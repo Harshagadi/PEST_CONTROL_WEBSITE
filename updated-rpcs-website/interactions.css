@@ -1,0 +1,31 @@
+/* Link and cursor details */
+a:focus-visible, button:focus-visible { outline: 3px solid #dc8100; outline-offset: 4px; }
+.text-link, .hero-bottom a, .back-top, .contact-details a { text-decoration-line: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 5px; transition: text-decoration-color .3s ease, text-underline-offset .3s ease; }
+.text-link:hover, .text-link:focus-visible, .hero-bottom a:hover, .hero-bottom a:focus-visible, .back-top:hover, .back-top:focus-visible, .contact-details a:hover, .contact-details a:focus-visible { text-decoration-color: currentColor; text-underline-offset: 8px; }
+.text-link span, .hero-bottom a span, .nav-cta span { display: inline-block; transition: transform .3s var(--ease); }
+.text-link:hover span, .text-link:focus-visible span, .hero-bottom a:hover span, .hero-bottom a:focus-visible span { transform: translateY(5px); }
+.nav-cta:hover span, .nav-cta:focus-visible span { transform: translate(4px,-4px); }
+.button:focus-visible { transform: translateY(-4px); }
+.button:focus-visible span { transform: translate(3px,-3px); }
+.round-link:focus-visible span { background: var(--green); color: var(--yellow); transform: rotate(45deg); }
+.chapter-links a:hover, .chapter-links a:focus-visible { transform: translateY(-2px); }
+.brand-logo { transition: transform .45s var(--ease); }
+.brand:hover .brand-logo, .brand:focus-visible .brand-logo { transform: rotate(-10deg) scale(1.06); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .cursor-accent { position: fixed; left: 0; top: 0; z-index: 9999; width: 34px; height: 34px; border: 2px solid #ffff0a; border-radius: 50%; box-shadow: 0 0 0 1px #004526, 0 2px 12px rgba(0,53,30,.2); pointer-events: none; opacity: 0; transform: translate3d(-100px,-100px,0) translate(-50%,-50%); transition: opacity .2s, width .25s var(--ease), height .25s var(--ease), background-color .25s; }
+  .cursor-accent.is-visible { opacity: .85; }
+  .cursor-accent.is-interactive { width: 52px; height: 52px; background: rgba(255,255,10,.14); }
+  .cursor-accent.is-pressed { width: 25px; height: 25px; }
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) { .cursor-accent { display: none; } }
+
+/* GSAP owns these transforms when the enhanced interactions are available. */
+.gsap-enhanced .button { transition: background .3s, color .3s; }
+.gsap-enhanced .button:hover { transform: none; }
+.gsap-enhanced .button span { transition: none; }
+.gsap-enhanced .button:hover span { transform: none; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .cursor-dot { position: fixed; left: 0; top: 0; z-index: 10000; width: 6px; height: 6px; border-radius: 50%; background: #ffff0a; box-shadow: 0 0 0 1px #004526; pointer-events: none; opacity: 0; }
+  .gsap-enhanced .cursor-accent { transition: none; will-change: transform; }
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) { .cursor-dot { display: none; } }
